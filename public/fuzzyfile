@@ -1,0 +1,10 @@
+{
+  "@type":"fuzzyfile",
+  "fuzzes":[
+    {
+      "name":"Rösta",
+      "str":"rösta vote",
+      "href":"/"
+    }
+  ]
+}

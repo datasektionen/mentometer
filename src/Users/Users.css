@@ -1,0 +1,27 @@
+.crop{
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  border: none;
+  margin-right: 10px;
+}
+ul.zfinger {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2)
+}
+ul.zfinger li {
+  padding: 7px 10px;
+  cursor: pointer;
+  transition: all 0s;
+}
+ul.zfinger li.active, ul.zfinger li:hover {
+  background: #eee;
+}

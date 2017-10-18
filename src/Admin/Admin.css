@@ -1,0 +1,104 @@
+.question {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.7em;
+  color: #fff;
+}
+.status {
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+}
+.wrapper {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+ul.alternatives {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.alternatives li {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+ul.alternatives li a {
+  display: block;
+  max-width: 1220px;
+  margin: 0 auto 1px;
+  padding: 20px;
+  color: #fff;
+}
+ul.alternatives li a:active {
+  background: #fff;
+  color: #555;
+}
+input[type="text"] {
+  padding: 11px 10px 10px;
+  width: 100%;
+}
+ul.alternatives-admin {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+ul.alternatives-admin li {
+  padding: 0;
+  margin: 5px 0;
+  list-style-type: none;
+  position: relative;
+}
+ul.alternatives-admin li button.delete {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  color: #fff !important;
+  padding: 10px;
+}
+.theme-color.button {
+  color: #fff !important;
+}
+
+.results {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.results li {
+  margin: 5px 0;
+}
+.results .bar-label {
+  width: 20%;
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 14px;
+  color: #fff;
+}
+.results .bar-container {
+  width: 80%;
+  height: 50px;
+  line-height: 50px;
+  float: right;
+}
+.clear {
+  clear: both;
+}
+.results .bar-container .bar {
+  height: 50px;
+  line-height: 50px;
+}
+ul.users {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.users li {
+  padding: 0;
+  margin: 0;
+}
+
+

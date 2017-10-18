@@ -1,0 +1,33 @@
+.status {
+  transition: height 0.1s, padding 0.1s, font-size 0.1s;
+}
+.hideit {
+  height: 0;
+  padding: 0 !important;
+  font-size: 0;
+  transition: font-size 0s;
+  opacity: 0;
+}
+
+.select {
+  padding: 10px 3px;
+  font-family: inherit;
+  font-size: inherit;
+  border: 1px solid #f7f7f7;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08) !important;
+  color: #696969;
+  float: left;
+  background: url(/images/dropdown.png) no-repeat right 17px, #fff;
+}
+.select select {
+  display: block;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  padding: 0 20px 0 7px;
+}
