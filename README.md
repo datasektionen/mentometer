@@ -1,6 +1,6 @@
 # Mentometer
 
-Mentometer är systemet som låter avprickade sektionsmedlemmar rösta i frågor som ställs av administratörerna. Administratör är den som är medlem i gruppen ```mentometer.admin``` i Pls, förslagsvis Drektoratet.
+Mentometer är systemet som låter avprickade sektionsmedlemmar rösta i frågor som ställs av administratörerna. Administratör är den som är medlem i gruppen ```mentometer.admin``` i Pls, förslagsvis Drektoratet. Systemet är skrivet i Node.js för backend och React för frontend.
 
 ## Miljövariabler
 
@@ -42,3 +42,10 @@ npm run dev
 
 för att köra watch-builds av frontenden. Du måste fortfarande köra ```npm start``` för att ha servern på i bakgrunden, så att du kan använda frontenden.
 
+## Systemets uppbyggnad
+
+Servern är både en Node.js-Express-server och en Socket.io-server (websockets). ```index.js``` servar båda dessa. Express-servern servar i stort sett bara React-frontenden. Denna frontend ansluter endast med websockets till servern.
+
+### Databas
+
+Det enda som sparas i databasen är användare och loggar. Användare sparas för att kunna komma ihåg närvaro vid en eventuell krash och slippa förlita sig på att hålla allt i minnet. Samma sak gäller för loggarna. Log och User definieras i ```models.js```. I ```socketAuth``` finns en funktion för att verifiera en användare mot login2 vid första anslutningen till websocketen.
