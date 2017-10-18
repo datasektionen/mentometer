@@ -19,6 +19,8 @@ REACT_APP_WS_URL=http://localhost:8080
 
 ## Körning
 
+För att köra Mentometer krävs [Node](https://nodejs.org/en/) och [npm](https://www.npmjs.com/get-npm). Börja med att installera det.
+
 Klona detta repo, och kör sedan
 
 ```
