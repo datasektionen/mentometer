@@ -16,3 +16,29 @@ REACT_APP_WS_URL=http://localhost:8080
 ```
 
 The ```REACT_APP_THEME_COLOR``` is the default Aurora color (defaults to red) and the ```REACT_APP_WS_URL``` is the URL to the server.
+
+## Körning
+
+Klona detta repo, och kör sedan
+
+```
+npm install
+```
+
+Alla beroenden installeras då, och frontenden byggs och placeras i build-mappen i root. Du kan sedan köra servern med
+
+```
+npm start
+```
+Programmet servar då frontenden från build-mappen till alla GET-requests. Samtidigt lyssnar den efter websocketanslutningar från klienterna och svarar dem därefter.
+
+### Utveckling
+
+För att förenkla utveckling (av framför allt frontend) så bör istället dev-scriptet användas. Installera fortfarande med ```npm install```, men kör sedan
+
+```
+npm run dev
+```
+
+för att köra watch-builds av frontenden. Du måste fortfarande köra ```npm start``` för att ha servern på i bakgrunden, så att du kan använda frontenden.
+
