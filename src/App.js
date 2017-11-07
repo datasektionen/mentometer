@@ -79,6 +79,24 @@ class App extends Component {
       })
     })
 
+    this.state.socket.on('music', state => {
+      if (state) {
+        const audio = new Audio('/silja.mp3')
+        if (!this.state.audio) {
+          audio.play()
+          this.setState({audio: audio})
+        } else {
+          this.state.audio.pause()
+          this.state.audio.currentTime = 0
+          this.state.audio.play()
+        }
+      } else {
+        this.state.audio.pause()
+        this.state.audio.currentTime = 0
+      }
+      this.setState({ playing: state })
+    })
+
     this.state.socket.on('open', open => {
       this.setState({ open })
     })
