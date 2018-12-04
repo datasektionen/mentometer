@@ -17,13 +17,13 @@ module.exports = (socket, next) => {
       // Also check if user is admin and save
       db.User.createFromLogin(x, (user) => {
         socket.user = user
-        // Check if admin
+        // Check if admin)
         fetch(process.env.PLS_API_URL + '/user/' + user.kthid + '/mentometer/admin')
           .then(x => x.json()).catch(e => {})
           .then(x => { 
             socket.user.isAdmin = x
             next() 
-          }).catch(e => {})
+          }).catch(e => { console.log(e) })
       })
     })
     .catch(x => next(new Error('Authentication error')))
