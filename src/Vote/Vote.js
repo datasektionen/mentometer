@@ -8,9 +8,9 @@ class Vote extends Component {
     super(props);
     this.state = {
       statusText: [
-        '', 
-        'Din röst togs emot!', 
-        'Din röst har ändrats!', 
+        '',
+        'Din röst togs emot!',
+        'Din röst har ändrats!',
         'Du är inte behörig att rösta',
         'Omröstningen är inte öppen'
       ]
@@ -34,7 +34,7 @@ class Vote extends Component {
       e.preventDefault()
       socket.emit('vote', { alternative: id })
     }
-    
+
     return (
       <div>
         <div className="question lighten-1">
@@ -46,7 +46,7 @@ class Vote extends Component {
         <ul className="alternatives theme-color">
           { alternatives.map((alternative, i) => (
             <li className="lighten-3" key={ alternative.content }>
-              <a href="" onClick={ e => vote(e, alternative.id) } className="lighten-3">{ alternative.content }</a>
+              <a href="#" onClick={ e => vote(e, alternative.id) } className="lighten-3">{ alternative.content }</a>
             </li>
           )) }
         </ul>
