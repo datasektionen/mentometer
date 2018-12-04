@@ -21,7 +21,7 @@ class Admin extends Component {
     }
     const syncQuestion = (e) => {
       e.preventDefault()
-      this.props.socket.emit('question', e.target.value)
+      this.props.syncQuestion(e.target.value)
     }
     const yesNo = (e) => {
       e.preventDefault()
@@ -65,7 +65,7 @@ class Admin extends Component {
         </div>
       )
     }
-    return ( 
+    return (
       <div>
         <Header title="Omröstning" action={ open ? {str: 'Stäng', onClick: closeVoting} : {str: 'Öppna', onClick: openVoting}} />
         <div id="content">
@@ -78,7 +78,7 @@ class Admin extends Component {
               ...eller: <button className="theme-color btn-color" onClick={yesNoQuestion}>Ja, nej eller blank röst?</button> &nbsp; <button className="theme-color btn-color" onClick={bifallQuestion}>Bifalla, avslå eller rösta blankt?</button><br /><br />
             </div>
             <input style={{maxWidth:'500px'}} type="text" value={ question } onChange={ syncQuestion } />
-            
+
             <h3>Alternativ</h3>
             <div style={{ float: 'right' }}>
               ..eller: <button className="theme-color btn-color" onClick={yesNo}>Ja / Nej / Blankt</button> &nbsp; <button className="theme-color btn-color" onClick={bifall}>Bifall / Avslag / Blankt</button><br />

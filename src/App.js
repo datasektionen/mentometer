@@ -21,7 +21,7 @@ class App extends Component {
     if (!theme || theme === '%REACT_APP_THEME_COLOR%') {
       theme = 'red'
     }
-    
+
     this.state = {
       question: 'Ansluter...',
       alternatives: ['Det verkar ta lång tid...'],
@@ -50,8 +50,8 @@ class App extends Component {
       }
     });
 
-    this.state.socket.on('question', question => {
-      this.setState({ question })
+    this.state.socket.on('question', newQuestion => {
+      this.setState(({ question }) => ({ question: question.startsWith(newQuestion) ? question : newQuestion }))
     })
 
     this.state.socket.on('alternatives', alternatives => {
@@ -67,7 +67,7 @@ class App extends Component {
     })
 
     this.state.socket.on('admin', admin => {
-      this.setState({ 
+      this.setState({
         admin: admin,
         methoneLinks: !admin ? this.state.methoneLinks : [
           <Link to="/">Rösta</Link>,
@@ -94,11 +94,18 @@ class App extends Component {
         }
         if (a.first_name === b.first_name) {
           return a.last_name < b.last_name ? -1 : a.last_name > b.last_name
-        } 
+        }
         return a.first_name < b.first_name ? -1 : a.first_name > b.first_name
       })
       this.setState({ users: users })
     })
+
+    this.syncQuestion = this.syncQuestion.bind(this)
+  }
+
+  syncQuestion(question) {
+    this.setState({question})
+    this.state.socket.emit('question', question)
   }
 
   render() {
@@ -115,7 +122,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={match => <Vote  {...this.props} {...this.state} />} />
           <Route exact path='/users' render={match => <Users  {...this.props} {...this.state} />} />
-          <Route exact path='/admin' render={match => <Admin  {...this.props} {...this.state} />} />
+          <Route exact path='/admin' render={match => <Admin  {...this.props} {...this.state} syncQuestion={this.syncQuestion} />} />
           <Route exact path='/log' render={match => <Log  {...this.props} {...this.state} />} />
           <Route exact path='/other' render={match => <Other  {...this.props} {...this.state} changeColor={changeColor} />} />
           <Route exact path='/login' render={match => {window.location = `https://login2.datasektionen.se/login?callback=${encodeURIComponent(window.location.origin)}/token/` }} />} />
