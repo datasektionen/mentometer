@@ -31,3 +31,11 @@
   text-overflow: '';
   padding: 0 20px 0 7px;
 }
+
+div.toggleMusic span{
+  margin-right: 10px;
+}
+
+div.toggleMusic input{
+  cursor: pointer;
+}

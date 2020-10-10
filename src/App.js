@@ -22,6 +22,10 @@ class App extends Component {
       theme = 'red'
     }
 
+    if (!localStorage.getItem('toggleMusic')) {
+      localStorage.setItem('toggleMusic', true)
+    }
+
     this.state = {
       question: 'Ansluter...',
       alternatives: ['Det verkar ta lång tid...'],
@@ -80,7 +84,10 @@ class App extends Component {
     })
 
     this.state.socket.on('music', state => {
-      if (state) {
+      let allowMusic = localStorage.getItem('toggleMusic') == "true"
+      if (state && allowMusic) {
+
+        
         const audio = new Audio('/silja.mp3')
         if (this.state.audio) {
           this.state.audio.pause()
@@ -147,7 +154,7 @@ class App extends Component {
           <Route path='/token/:token' render={({match}) => {
             localStorage.setItem('token', match.params.token)
             return <Redirect to='/' />
-          }} />} />
+          }} />
         </Switch>
       </div>
     )
