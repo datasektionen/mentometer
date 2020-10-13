@@ -64,7 +64,7 @@ io.use(socketAuth)
   socket.emit('status', state.voteList[socket.user.ugkthid] === undefined ? 0 : 1)
   socket.emit('admin', socket.user.isAdmin)
   socket.emit('open', state.open)
-  socket.emit('music', state.music)
+  // socket.emit('music', state.music)
 
   if (socket.user.isAdmin) {
     socket.emit('votes', state.votes)

@@ -6,9 +6,7 @@ class Other extends Component {
     super(props);
 
     this.state = {
-      colors: [props.theme],
-      // It is stored in localstorage as a string, this way we convert to boolean
-      toggleMusic: localStorage.getItem('toggleMusic') == "true"
+      colors: [props.theme]
     }
 
     fetch('https://aurora.datasektionen.se/api/colors')
@@ -21,17 +19,6 @@ class Other extends Component {
       this.props.changeColor(e.target.value)
     }
     const { colors } = this.state
-
-    const toggleMusic = _ => {
-      if (localStorage.getItem('toggleMusic') === "true") {
-        localStorage.setItem('toggleMusic', false)
-        this.setState({toggleMusic: false})
-      } else {
-        localStorage.setItem('toggleMusic', true)
-        this.setState({toggleMusic: true})
-      }
-    }
-
     return ( 
       <div>
         <Header title="Annat" />
@@ -47,15 +34,6 @@ class Other extends Component {
                 ))
               }
             </select>
-          </div>
-          <br/><br/>
-          <div>
-            <h1>Musik</h1>
-            <p>Vill du bli öronvåldtagen eller inte när drek sätter på musik? Spelas det musik när denna inställning ändras måste du manuellt stänga av musiken i webbläsaren. Framtida musik kommer däremot inte spelas upp.</p>
-            <div className="toggleMusic">
-              <span>Tillåt musik</span>
-              <input name="toggleMusic" type="checkbox" onChange={toggleMusic} checked={this.state.toggleMusic} />
-            </div>
           </div>
         </div>
       </div>

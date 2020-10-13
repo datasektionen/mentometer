@@ -22,10 +22,6 @@ class App extends Component {
       theme = 'red'
     }
 
-    if (!localStorage.getItem('toggleMusic')) {
-      localStorage.setItem('toggleMusic', true)
-    }
-
     this.state = {
       question: 'Ansluter...',
       alternatives: ['Det verkar ta lång tid...'],
@@ -84,24 +80,24 @@ class App extends Component {
     })
 
     this.state.socket.on('music', state => {
-      let allowMusic = localStorage.getItem('toggleMusic') == "true"
-      if (state && allowMusic) {
+      return
+      // if (state) {
 
         
-        const audio = new Audio('/silja.mp3')
-        if (this.state.audio) {
-          this.state.audio.pause()
-          this.state.audio.currentTime = 0
-          this.state.audio.play()
-        } else {
-          audio.play()
-          this.setState({audio: audio})
-        }
-      } else if (this.state.audio) {
-        this.state.audio.pause()
-        this.state.audio.currentTime = 0
-      }
-      this.setState({ playing: state })
+      //   const audio = new Audio('/silja.mp3')
+      //   if (this.state.audio) {
+      //     this.state.audio.pause()
+      //     this.state.audio.currentTime = 0
+      //     this.state.audio.play()
+      //   } else {
+      //     audio.play()
+      //     this.setState({audio: audio})
+      //   }
+      // } else if (this.state.audio) {
+      //   this.state.audio.pause()
+      //   this.state.audio.currentTime = 0
+      // }
+      // this.setState({ playing: state })
     })
 
     this.state.socket.on('open', open => {
