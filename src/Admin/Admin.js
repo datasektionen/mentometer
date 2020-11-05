@@ -55,14 +55,6 @@ class Admin extends Component {
       e.preventDefault()
       this.props.socket.emit('open', false)
     }
-    // const play = (e) => {
-    //   e.preventDefault()
-    //   this.props.socket.emit('music', true)
-    // }
-    // const pause = (e) => {
-    //   e.preventDefault()
-    //   this.props.socket.emit('music', false)
-    // }
     if (!this.props.admin) {
       return (
         <div>
@@ -77,8 +69,6 @@ class Admin extends Component {
       <div>
         <Header title="Omröstning" action={ open ? {str: 'Stäng', onClick: closeVoting} : {str: 'Öppna', onClick: openVoting}} />
         <div id="content">
-          {/* <button className="theme-color btn-color" onClick={play}>Spela musik</button> &nbsp;
-          <button className="theme-color btn-color" onClick={pause}>Avbryt musik</button> */}
           <Results {...this.props} {...this.state} />
           <br />
           { !open ? (
