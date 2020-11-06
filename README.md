@@ -18,7 +18,7 @@ Det enda som sparas i databasen är användare och loggar. Användare sparas fö
 ## Dependencies
 ### Sektionens system
 - **Login2** - för inloggning med KTH-konto.
-- **Pls** - för att kolla om inloggad är admin/sektionshistoriker eller prylis
+- **Pls** - för att kolla om användaen har adminrättigheter.
 
 ### Annan mjukvara
 För att köra Mentometer krävs [Node](https://nodejs.org/en/) och [npm](https://www.npmjs.com/get-npm). Börja med att installera det.
