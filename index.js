@@ -39,7 +39,6 @@ const state = {
   alternatives: [], // The existing alternatives
   voteList: {}, // A hashmap of users u1234567 => alternativeid that have voted with their vote
   open: false,
-  music: false,
   get votes () { 
     return this.alternatives.map((a,i) => {
       let list = []
@@ -64,7 +63,6 @@ io.use(socketAuth)
   socket.emit('status', state.voteList[socket.user.ugkthid] === undefined ? 0 : 1)
   socket.emit('admin', socket.user.isAdmin)
   socket.emit('open', state.open)
-  socket.emit('music', state.music)
 
   if (socket.user.isAdmin) {
     socket.emit('votes', state.votes)
@@ -192,14 +190,6 @@ io.use(socketAuth)
     state.voteList = {}
     getAdminSockets().forEach(sock => sock.emit('votes', state.votes))
     io.sockets.emit('status', 0)
-  })
-
-  socket.on('music', function (data) {
-    if (!socket.user.isAdmin) {
-      return
-    }
-    state.music = data
-    io.sockets.emit('music', data)
   })
 
   socket.on('update-user', function (data) {

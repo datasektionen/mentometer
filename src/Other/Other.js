@@ -4,6 +4,7 @@ import Header from '../Header/Header'
 class Other extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       colors: [props.theme]
     }
@@ -12,6 +13,7 @@ class Other extends Component {
       .then(x => x.json())
       .then(x => this.setState({ colors: x }))
   }
+
   render() {
     const changeColor = (e) => {
       this.props.changeColor(e.target.value)
