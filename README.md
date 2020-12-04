@@ -15,10 +15,15 @@ I ```socketAuth``` finns en funktion för att verifiera en användare mot login2
 ## Databasen
 Det enda som sparas i databasen är användare och loggar. Användare sparas för att kunna komma ihåg närvaro vid en eventuell krash och slippa förlita sig på att hålla allt i minnet. Samma sak gäller för loggarna. Log och User definieras i ```models.js```.
 
+## API endpoints
+Mentometer har inga API-endpoints för HTTP.
+
+Dokumentation för socketkommunikationen finns [här](API.md)
+
 ## Dependencies
 ### Sektionens system
 - **Login2** - för inloggning med KTH-konto.
-- **Pls** - för att kolla om användaen har adminrättigheter.
+- **Pls** - för att kolla om användaren har adminrättigheter.
 
 ### Annan mjukvara
 För att köra Mentometer krävs [Node](https://nodejs.org/en/) och [npm](https://www.npmjs.com/get-npm). Börja med att installera det.
