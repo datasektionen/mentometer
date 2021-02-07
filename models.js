@@ -7,7 +7,7 @@ var fetch = require('node-fetch')
 var mongoose = require('mongoose');
 
 // Connect and set up
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 
 // All the models should be declared here
