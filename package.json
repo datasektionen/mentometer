@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "express": "^4.16.4",
-    "methone": "^0.6.5",
+    "methone": "github:datasektionen/Methone#master",
     "moment": "^2.22.2",
     "mongoose": "^5.3.14",
     "node-fetch": "^2.3.0",
