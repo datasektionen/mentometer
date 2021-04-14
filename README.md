@@ -1,4 +1,8 @@
 # Mentometer - Sektionens voteringssystem
+[![Build](https://github.com/datasektionen/mentometer/actions/workflows/test.yml/badge.svg)](https://github.com/datasektionen/mentometer/actions/workflows/test.yml)
+
+## Deploying
+Systemet kan deployas automatiskt via Github Actions. Navigera till "Deploy"-action:en och klicka på "Run workflow".
 ## Om Mentometer
 Mentometer byggdes av Jonas Dahl i oktober 2017 "på ett SM och en pub". Systemet byggdes efter att sektionen vid Val-SM 2017 beslutade sig att bordlägga ett ärende gällande att köpa in fysiska mentometrar.
 

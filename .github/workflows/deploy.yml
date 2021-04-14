@@ -1,10 +1,7 @@
-name: "\"CI\" & CD"
+name: Deploy
 
 on:
-  push:
-    branches: [ master ]
-
-  # Can be activated manually
+  # Can only be activated manually
   workflow_dispatch:
 
 jobs:
