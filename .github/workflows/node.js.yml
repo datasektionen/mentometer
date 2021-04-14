@@ -1,4 +1,4 @@
-name: Install and build
+name: "\"CI\" & CD"
 
 on:
   push:
@@ -6,7 +6,11 @@ on:
   pull_request:
     branches: [ master ]
 
+  # Can be activated manually
+  workflow_dispatch:
+
 jobs:
+  # Test that it builds
   test:
     runs-on: ubuntu-latest
 
@@ -23,4 +27,28 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
+    # Don't fail on warnings with CI=''
     - run: CI='' npm run build
+
+  # TODO: Unit tests :D
+
+  # Deploy to sips
+  deploy:
+    runs-on: ubuntu-latest
+    # Don't deploy if build fails
+    needs: test
+
+    steps:
+    - name: Git checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    # https://github.com/marketplace/actions/dokku-deploy-action?version=v1
+    - name: Deploy on sips
+      uses: idoberko2/dokku-deploy-github-action@v1
+      with:
+        ssh-private-key: ${{ secrets.SIPS_SSH_KEY }}
+        dokku-user: 'dokku'
+        remote-branch: 'master'
+        dokku-host: 'sips.datasektionen.se'
+        app-name: 'mentometer'
