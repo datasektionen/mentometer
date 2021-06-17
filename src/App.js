@@ -120,12 +120,22 @@ class App extends Component {
       <div id="application" className={this.state.theme}>
         <Methone config={{ system_name: "mentometer", color_scheme: this.state.theme.replace('-', '_'), links: this.state.methoneLinks }} />
         <Switch>
-          <Route exact path='/' render={match => <Vote  {...this.props} {...this.state} />} />
-          <Route exact path='/users' render={match => <Users  {...this.props} {...this.state} />} />
-          <Route exact path='/admin' render={match => <Admin  {...this.props} {...this.state} syncQuestion={this.syncQuestion} />} />
-          <Route exact path='/log' render={match => <Log  {...this.props} {...this.state} />} />
-          <Route exact path='/other' render={match => <Other  {...this.props} {...this.state} changeColor={changeColor} />} />
-          <Route exact path='/login' render={match => {window.location = `https://login2.datasektionen.se/login?callback=${encodeURIComponent(window.location.origin)}/token/` }} />} />
+          <Route exact path='/'>
+            <Vote {...this.props} {...this.state} />
+          </Route>
+          <Route exact path='/users'>
+            <Users {...this.props} {...this.state} />
+          </Route>
+          <Route exact path='/admin'>
+            <Admin {...this.props} {...this.state} syncQuestion={this.syncQuestion} />
+          </Route>
+          <Route exact path='/log'>
+            <Log {...this.props} {...this.state} />  
+          </Route>
+          <Route exact path='/other'>
+            <Other {...this.props} {...this.state} changeColor={changeColor} />
+          </Route>
+          <Route exact path='/login'  render={match => {window.location = `https://login2.datasektionen.se/login?callback=${encodeURIComponent(window.location.origin)}/token/` }}  />
           <Route path='/token/:token' render={({match}) => {
             localStorage.setItem('token', match.params.token)
             return <Redirect to='/' />
