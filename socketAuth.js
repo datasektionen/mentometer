@@ -17,6 +17,13 @@ module.exports = (socket, next) => {
       // Also check if user is admin and save
       db.User.createFromLogin(x, (user) => {
         socket.user = user
+
+        // Force admin when running locally, otherwise ask pls
+        if (process.env.NODE_ENV === "development") {
+          socket.user.isAdmin = true;
+          return next();
+        }
+
         // Check if admin)
         fetch(process.env.PLS_API_URL + '/user/' + user.kthid + '/mentometer/admin')
           .then(x => x.json()).catch(e => {})
