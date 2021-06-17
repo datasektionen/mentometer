@@ -5,6 +5,18 @@ import moment from 'moment'
 class Log extends Component { 
   render() {
     const {log} = this.props
+
+    if (!this.props.admin) {
+      return (
+        <div>
+          <Header title="Historik" />
+          <div id="content">
+            <p>Du måste vara inloggad som Drek för att kunna se historik.</p>
+          </div>
+        </div>
+      )
+    }
+
     return ( 
       <div>
         <Header title="Historik" />
