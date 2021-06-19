@@ -54,14 +54,14 @@ En login2-nyckel fås av systemansvarig (d-sys@d.kth.se)
 ### Server
 
 1. Kör `npm install` för att installera alla dependencies.
-2. Kör `npm start` för att starta servern på port 8080 (om inget annan anges)
+2. Kör `npm run dev:server` för att starta servern på port 8080 (om inget annan anges)
 
 Detta kör endast servern.
 
 ### Klient
 
 1. Kör `npm install` för att installera alla dependencies.
-2. Kör `npm run dev` för att starta front end på port 3000 (om inget annat anges)
+2. Kör `npm run dev:client` för att starta front end på port 3000 (om inget annat anges)
 
 Detta kör frontenden.
 
@@ -69,5 +69,6 @@ Detta kör frontenden.
 
 1. Kör `npm install` för att installera alla dependencies.
 2. Kör `npm run build` för att bygga frontenden som hamnar i ```build```-mappen
+3. Kör `npm start` så startar servern på port 8080, om ingen annan port är angiven.
 
 Programmet servar då frontenden från build-mappen till alla GET-requests. Samtidigt lyssnar den efter websocketanslutningar från klienterna och svarar dem därefter.
