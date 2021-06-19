@@ -6,9 +6,7 @@ class Results extends Component {
 
 		const numVotes = votes.reduce((a, b) => a + b, 0);
 		// user.attending is a boolean
-		// However, true + true = 2 (and so on) in Javascript, so the map is actually unnecessary
-		const attending = users.map(u => u.attending ? 1 : 0).reduce((a, b) => a + b, 0)
-
+		const attending = users.filter(u => u.attending).reduce((a, b) => a + b.attending, 0)
 		return (
 			<div>
 				<h1>{ question }</h1>
@@ -16,7 +14,8 @@ class Results extends Component {
 	            <ul className="results">
 	              { alternatives.map((alternative, index) => (
 	                <li key={JSON.stringify(alternative)}>
-	                  <div className="theme-color bar-label">{ alternative.content } { open ? "?" : votes[index] }</div>
+	                  <div className="theme-color bar-label">{ alternative.content } </div>
+					  <div className="theme-color bar-label bar-votes">{ open ? "?" : votes[index] }</div>
 	                  <div className="bar-container">
 						{open ?
 							<div className="bar lighten-3" style={{width: "0%"}}></div>
