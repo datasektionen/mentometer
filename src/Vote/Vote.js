@@ -42,7 +42,6 @@ class Vote extends Component {
             { question }
           </div>
         </div>
-        <Message text={this.state.statusText[status]} expire="3000" />
         <ul className="alternatives theme-color">
           { alternatives.map((alternative, i) => (
             <li className="lighten-3" key={ alternative.content }>
@@ -50,6 +49,7 @@ class Vote extends Component {
             </li>
           )) }
         </ul>
+        <Message text={this.state.statusText[status]} expire="3000" />
       </div>
     )
   }
