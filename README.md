@@ -37,12 +37,12 @@ För att köra Mentometer krävs [Node](https://nodejs.org/en/) och [npm](https:
 
 Du behöver dessa environmentvariabler (förslagsvis i en .env-fil) innan du kan köra mentometer.
 
-En login2-nyckel fås av systemansvarig (d-sys@d.kth.se)
+~~En login2-nyckel fås av systemansvarig (d-sys@d.kth.se)~~
 
 | Variabel              | Beskrivning                           | Exempel                                               | Default-värde |
 |-----------------------|---------------------------------------|-------------------------------------------------------|---------------|
 | LOGIN2_API_URL   | URL till login2                       | https://login.datasektionen.se                             | -             |
-| LOGIN2_API_KEY   | Login2 api-nyckel                     | En token som fås av [systemansvarig](mailto:d-sys@d.kth.se)| -             |
+| LOGIN2_API_KEY   | Login2 api-nyckel                     | ~~En token som fås av [systemansvarig](mailto:d-sys@d.kth.se)~~ | -             |
 | MONGO_URL        | URL till mongodatabasen               | mongodb://localhost:27017/mentometer                       | -             |
 | PLS_API_URL      | URL till pls                          | https://pls.datasektionen.se/api                           | -             |
 | REACT_APP_WS_URL | URLen till servern för att förenkla vid utveckling. Om den lämnas tom kommer frontenden försöka ansluta till samma URL som den hostas på, vilket funkar i de fall frontend och backend ligger på samma URL och port.    | http://localhost:8080               | -             |
