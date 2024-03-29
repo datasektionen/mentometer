@@ -1,3 +1,5 @@
+Efter att resultatet till en omröstning blivit nästan bara blanka röster - ett resultat som inte så många trodde var korrekt, försvann allt tillit till mentometer och systemet användes därefter inte mer. 🪦
+
 # Mentometer - Sektionens voteringssystem
 [![Build](https://github.com/datasektionen/mentometer/actions/workflows/test.yml/badge.svg)](https://github.com/datasektionen/mentometer/actions/workflows/test.yml)
 
